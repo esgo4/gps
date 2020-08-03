@@ -1,0 +1,60 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "cuadrillas".
+ *
+ * @property int $id
+ * @property string|null $nombre
+ * @property string|null $responsable
+ *
+ * @property AsignacionCorte[] $asignacionCortes
+ */
+class Cuadrillas extends \yii\db\ActiveRecord
+{
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'cuadrillas';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['id'], 'required'],
+            [['id'], 'integer'],
+            [['nombre', 'responsable'], 'string', 'max' => 255],
+            [['id'], 'unique'],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'responsable' => 'Responsable',
+        ];
+    }
+
+    /**
+     * Gets query for [[AsignacionCortes]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAsignacionCortes()
+    {
+        return $this->hasMany(AsignacionCorte::className(), ['cuadrilla_id' => 'id']);
+    }
+}
