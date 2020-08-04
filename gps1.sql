@@ -11,7 +11,7 @@
  Target Server Version : 100406
  File Encoding         : 65001
 
- Date: 03/08/2020 15:11:41
+ Date: 04/08/2020 09:06:44
 */
 
 SET NAMES utf8mb4;
@@ -371,13 +371,15 @@ CREATE TABLE `huertas`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `huertas_basculas`;
 CREATE TABLE `huertas_basculas`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `huertas_id` int(11) NOT NULL,
   `basculas_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_huertas_basculas_huertas1_idx`(`huertas_id`) USING BTREE,
   INDEX `fk_huertas_basculas_basculas1_idx`(`basculas_id`) USING BTREE,
   CONSTRAINT `fk_huertas_basculas_basculas1` FOREIGN KEY (`basculas_id`) REFERENCES `basculas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_huertas_basculas_huertas1` FOREIGN KEY (`huertas_id`) REFERENCES `huertas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for huertas_vehiculos_historial
@@ -515,12 +517,14 @@ CREATE TABLE `vehiculos`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `vehiculos_chofer`;
 CREATE TABLE `vehiculos_chofer`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `vehiculos_id` int(11) NOT NULL,
   `choferes_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_vehiculos_chofer_vehiculos1_idx`(`vehiculos_id`) USING BTREE,
   INDEX `fk_vehiculos_chofer_chofer1_idx`(`choferes_id`) USING BTREE,
   CONSTRAINT `fk_vehiculos_chofer_chofer1` FOREIGN KEY (`choferes_id`) REFERENCES `choferes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_vehiculos_chofer_vehiculos1` FOREIGN KEY (`vehiculos_id`) REFERENCES `vehiculos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
