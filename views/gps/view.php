@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\AsignacionCorte */
+/* @var $model app\models\Gps */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Asignacion Cortes', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Gps', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="asignacion-corte-view">
+<div class="gps-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,15 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'empaques_id',
-            'empresas_corte_id',
-            'huerta_id',
-            'basculas_id',
-            'vehiculos_id',
-            'chofer_id',
-            'cuadrilla_id',
-            'tipo_corte_id',
-            'fecha',
+            'imei',
+            'latitud',
+            'longitud',
+            'velocidad',
             'timestamp',
         ],
     ]) ?>

@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\AsignacionCorte;
+use app\models\TipoCorte;
 
 /**
- * AsignacionCorteBuscar represents the model behind the search form of `app\models\AsignacionCorte`.
+ * TipoCorteBuscar represents the model behind the search form of `app\models\TipoCorte`.
  */
-class AsignacionCorteBuscar extends AsignacionCorte
+class TipoCorteBuscar extends TipoCorte
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class AsignacionCorteBuscar extends AsignacionCorte
     public function rules()
     {
         return [
-            [['id', 'empaques_id', 'empresas_corte_id', 'huerta_id', 'basculas_id', 'vehiculos_id', 'chofer_id', 'cuadrilla_id', 'tipo_corte_id', 'fecha'], 'integer'],
-            [['timestamp'], 'safe'],
+            [['id'], 'integer'],
+            [['nombre'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class AsignacionCorteBuscar extends AsignacionCorte
      */
     public function search($params)
     {
-        $query = AsignacionCorte::find();
+        $query = TipoCorte::find();
 
         // add conditions that should always apply here
 
@@ -59,18 +59,9 @@ class AsignacionCorteBuscar extends AsignacionCorte
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'empaques_id' => $this->empaques_id,
-            'empresas_corte_id' => $this->empresas_corte_id,
-            'huerta_id' => $this->huerta_id,
-            'basculas_id' => $this->basculas_id,
-            'vehiculos_id' => $this->vehiculos_id,
-            'chofer_id' => $this->chofer_id,
-            'cuadrilla_id' => $this->cuadrilla_id,
-            'tipo_corte_id' => $this->tipo_corte_id,
-            'fecha' => $this->fecha,
         ]);
 
-        $query->andFilterWhere(['like', 'timestamp', $this->timestamp]);
+        $query->andFilterWhere(['like', 'nombre', $this->nombre]);
 
         return $dataProvider;
     }

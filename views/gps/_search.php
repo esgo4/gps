@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\AsignacionCorteBuscar */
+/* @var $model app\models\GpsBuscar */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="asignacion-corte-search">
+<div class="gps-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -20,23 +20,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'empaques_id') ?>
+    <?= $form->field($model, 'imei') ?>
 
-    <?= $form->field($model, 'empresas_corte_id') ?>
+    <?= $form->field($model, 'latitud') ?>
 
-    <?= $form->field($model, 'huerta_id') ?>
+    <?= $form->field($model, 'longitud') ?>
 
-    <?= $form->field($model, 'basculas_id') ?>
-
-    <?php // echo $form->field($model, 'vehiculos_id') ?>
-
-    <?php // echo $form->field($model, 'chofer_id') ?>
-
-    <?php // echo $form->field($model, 'cuadrilla_id') ?>
-
-    <?php // echo $form->field($model, 'tipo_corte_id') ?>
-
-    <?php // echo $form->field($model, 'fecha') ?>
+    <?= $form->field($model, 'velocidad') ?>
 
     <?php // echo $form->field($model, 'timestamp') ?>
 

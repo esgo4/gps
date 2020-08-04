@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\AsignacionCorte;
-use app\models\AsignacionCorteBuscar;
+use app\models\TipoCorte;
+use app\models\TipoCorteBuscar;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * AsignacionCorteController implements the CRUD actions for AsignacionCorte model.
+ * TipoCorteController implements the CRUD actions for TipoCorte model.
  */
-class AsignacionCorteController extends Controller
+class TipoCorteController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class AsignacionCorteController extends Controller
     }
 
     /**
-     * Lists all AsignacionCorte models.
+     * Lists all TipoCorte models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AsignacionCorteBuscar();
+        $searchModel = new TipoCorteBuscar();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class AsignacionCorteController extends Controller
     }
 
     /**
-     * Displays a single AsignacionCorte model.
+     * Displays a single TipoCorte model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class AsignacionCorteController extends Controller
     }
 
     /**
-     * Creates a new AsignacionCorte model.
+     * Creates a new TipoCorte model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new AsignacionCorte();
+        $model = new TipoCorte();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -74,24 +74,9 @@ class AsignacionCorteController extends Controller
             'model' => $model,
         ]);
     }
-    
-     public function actionNuevo(){
-        $model = new AsignacionCorte();
-        $model->fecha = date('Y-m-d');
-
-        if ($model->load(Yii::$app->request->post())  ) {
-            
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('nuevo', [
-            'model' => $model,
-        ]);
-    }
 
     /**
-     * Updates an existing AsignacionCorte model.
+     * Updates an existing TipoCorte model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -111,7 +96,7 @@ class AsignacionCorteController extends Controller
     }
 
     /**
-     * Deletes an existing AsignacionCorte model.
+     * Deletes an existing TipoCorte model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -125,15 +110,15 @@ class AsignacionCorteController extends Controller
     }
 
     /**
-     * Finds the AsignacionCorte model based on its primary key value.
+     * Finds the TipoCorte model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return AsignacionCorte the loaded model
+     * @return TipoCorte the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = AsignacionCorte::findOne($id)) !== null) {
+        if (($model = TipoCorte::findOne($id)) !== null) {
             return $model;
         }
 

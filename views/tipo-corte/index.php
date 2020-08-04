@@ -4,18 +4,18 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\AsignacionCorteBuscar */
+/* @var $searchModel app\models\TipoCorteBuscar */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Asignacion Cortes';
+$this->title = 'Tipo Cortes';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="asignacion-corte-index">
+<div class="tipo-corte-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Orden de Corte', ['nuevo'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Tipo Corte', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -28,23 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'empaques_id',
-            'empresas_corte_id',
-            'huerta_id',
-            'basculas_id',
-            //'vehiculos_id',
-            //'chofer_id',
-            //'cuadrilla_id',
-            //'tipo_corte_id',
-            //'fecha',
-            //'timestamp',
+            'nombre',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
-    <?php Pjax::end(); ?> 
-            
-    </div>
+    <?php Pjax::end(); ?>
 
 </div>

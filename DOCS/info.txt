@@ -1,0 +1,97 @@
+Empaque:
+Genera la Orden de Corte
+Huerta
+Empresa de Corte (propia)
+Unidad (empresa de Corte)
+Cuadrilla
+Bascula
+Se generan en automático relaciones que se envían a correo electrónico a cada empresa de cortes. 
+(10 pm)
+
+Empresa de Corte:
+Unidad
+Chofer
+Cuadrilla
+
+Se utilizara un nombre especifico para las unidades de acuerdo al ente que las este monitoreando.
+Mutualidad
+Empaque
+Empresa de Corte
+Propietario
+
+4 identificadores de acuerdo a quien valla a ver el dato, solo la mutuailidad tendria
+ la opcion de comando de apagado de vehiculo
+Al registrar cada unidad con un numero único dentro de la mutualidad, y el sistema
+ de acuerdo a quien asigno el corte (empaque) asignara el destino de la fruta.
+0001 – Frutival
+0002 – JBR
+0003 – WestPack
+0004 – Frutival
+
+datos generales de la unidad y datos generales de cada chofer, ligado a una unidad 
+pero pudiendo cambiarlo de ser necesario !
+al igual la valoracion o calificacion de cada chofer
+
+Agrupación de Unidades por Bascula y asignación al Usuario y generación automática de Contraseña.
+Zacan
+Tinguindin
+Periban
+Tancitaro
+Copetiro
+Charapondiro
+Condembaro
+JBR
+Acuitzio
+Tacambaro
+San Jose
+San Antonio
+Yorocostiro
+Tzatzio
+Moreno
+Tumines
+Tecario
+La Cantera
+Cuitzitan
+Santa Clara
+Libramiento
+Tiamba
+Joseli
+Jicalan
+Bonanza
+Ziracuaretiro
+
+Monitoristas:
+Detecta que una unidad no salió según el horario establecido de acuerdo a la
+ bascula asignada deberá de reportar el echo a la empresa de cortes o numero autorizado
+ (el cual se encuentra en plataforma)
+
+Deberá de estar al pendiente de que sus unidades se reúnan en el punto asignado
+ de acuerdo a su horario de salida. (formación de Caravanas)
+
+El sistema emitirá información de cada unidad cada 10 segundos, al esta verse 
+interrumpida por mas de 3 ocasiones el sistema emitirá una alerta y el monitorista
+ deberá activar el protocolo correspondiente (Falta de comunicación) a excepción si
+ es dentro de una zona con baja señal.
+
+Si alguna de las unidades del convoy se detiene o sale de la ruta establecida, 
+se deberá de activar el protocolo de recuperación
+
+Se recomienda que el sistema apague el total de unidades que no tenga actividad 
+en ese día (2 am) y sea solo por medio de la mutualidad que dicha unidad pueda
+ activarse, con su respectiva observación.
+
+Se establecerán rutas especificas de acuerdo al empaque destino de la fruta.
+de acuerdo al destino de la fruta (empaque)  y de la bascula que venga !
+
+Estas rutas estarán marcadas dentro del mapa, y se podrá configurar el apagado 
+automático de la unidad en caso de salir de cualquiera de ellas, de acuerdo al
+ destino asignado
+
+Una vez la unidad dentro de la geocerca del empaque, con una duración de 10 minutos
+ el equipo se desactivara de la plataforma de la mutualidad
+
+Si la unidad, antes de 10 minutos sale de la geocerca del empaque se activara 
+el protocolo de recuperación
+
+
+

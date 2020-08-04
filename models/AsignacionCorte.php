@@ -15,6 +15,7 @@ use Yii;
  * @property int|null $vehiculos_id
  * @property int|null $chofer_id
  * @property int|null $cuadrilla_id
+ * @property int|null $tipo_corte_id
  * @property int|null $fecha
  * @property string|null $timestamp
  *
@@ -24,6 +25,7 @@ use Yii;
  * @property Cuadrillas $cuadrilla
  * @property EmpresasCorte $empresasCorte
  * @property Huertas $huerta
+ * @property TipoCorte $tipoCorte
  * @property Vehiculos $vehiculos
  */
 class AsignacionCorte extends \yii\db\ActiveRecord
@@ -43,7 +45,7 @@ class AsignacionCorte extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'empaques_id'], 'required'],
-            [['id', 'empaques_id', 'empresas_corte_id', 'huerta_id', 'basculas_id', 'vehiculos_id', 'chofer_id', 'cuadrilla_id', 'fecha'], 'integer'],
+            [['id', 'empaques_id', 'empresas_corte_id', 'huerta_id', 'basculas_id', 'vehiculos_id', 'chofer_id', 'cuadrilla_id', 'tipo_corte_id', 'fecha'], 'integer'],
             [['timestamp'], 'string', 'max' => 45],
             [['id'], 'unique'],
             [['empaques_id'], 'exist', 'skipOnError' => true, 'targetClass' => Empaques::className(), 'targetAttribute' => ['empaques_id' => 'id']],
@@ -52,6 +54,7 @@ class AsignacionCorte extends \yii\db\ActiveRecord
             [['cuadrilla_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cuadrillas::className(), 'targetAttribute' => ['cuadrilla_id' => 'id']],
             [['empresas_corte_id'], 'exist', 'skipOnError' => true, 'targetClass' => EmpresasCorte::className(), 'targetAttribute' => ['empresas_corte_id' => 'id']],
             [['huerta_id'], 'exist', 'skipOnError' => true, 'targetClass' => Huertas::className(), 'targetAttribute' => ['huerta_id' => 'id']],
+            [['tipo_corte_id'], 'exist', 'skipOnError' => true, 'targetClass' => TipoCorte::className(), 'targetAttribute' => ['tipo_corte_id' => 'id']],
             [['vehiculos_id'], 'exist', 'skipOnError' => true, 'targetClass' => Vehiculos::className(), 'targetAttribute' => ['vehiculos_id' => 'id']],
         ];
     }
@@ -70,6 +73,7 @@ class AsignacionCorte extends \yii\db\ActiveRecord
             'vehiculos_id' => 'Vehiculos ID',
             'chofer_id' => 'Chofer ID',
             'cuadrilla_id' => 'Cuadrilla ID',
+            'tipo_corte_id' => 'Tipo Corte ID',
             'fecha' => 'Fecha',
             'timestamp' => 'Timestamp',
         ];
@@ -133,6 +137,16 @@ class AsignacionCorte extends \yii\db\ActiveRecord
     public function getHuerta()
     {
         return $this->hasOne(Huertas::className(), ['id' => 'huerta_id']);
+    }
+
+    /**
+     * Gets query for [[TipoCorte]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipoCorte()
+    {
+        return $this->hasOne(TipoCorte::className(), ['id' => 'tipo_corte_id']);
     }
 
     /**

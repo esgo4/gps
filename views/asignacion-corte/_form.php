@@ -28,6 +28,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'cuadrilla_id')->textInput() ?>
 
+    <?= $form->field($model, 'tipo_corte_id')->textInput() ?>
+
     <?= $form->field($model, 'fecha')->textInput() ?>
 
     <?= $form->field($model, 'timestamp')->textInput(['maxlength' => true]) ?>
